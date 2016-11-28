@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Croper</title>
+
+<link type="text/css" rel="stylesheet" href="pic.css" >
+
+<script src="aui-min.js"></script>
+<script src="zepto.min.js"></script>
+
+<style type="text/css" id="cropped-image_css"></style>
+<style type="text/css" id="cropped-view_css"></style>
+
+</head>
+<body style="overflow-x: hidden;overflow-y: hidden;">
+
+<div class="layout image-cropper">
+
+<div class="up_crop1">
+  <div class="up_crop2">
+    <div class="column w50">
+      <div class="column-content">
+        <img id="image" src="" onload="setCrop()" />
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="down_crop1">
+  <div class="down_crop2">
+    <div id="cropped-view" class="column w50">
+      <div class="column-content cropped-output">
+        <div class="cropped-image helper-hidden" id="croppedImage"></div>
+        <div class="status helper-hidden" id="status" style="display:none;"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+</body>
+<script src="pic_editor.js"></script>
+</html>

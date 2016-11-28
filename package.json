@@ -4,12 +4,13 @@
   "description": "A very small code editor.",
   "main": "main.html",
   "window": {
-    "width": 400,
-    "height": 520,
+    "width": 600,
+    "height": 600,
     "show": false,
     "title": "Mini Code Editor",
-    "toolbar": false
+    "toolbar": true
   },
   "scripts": {
     "start": "nw ."
   }
+}

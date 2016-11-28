@@ -3,6 +3,7 @@ var editor;
 var menu;
 var fileEntry;
 var hasWriteAccess;
+var opencrop;
 
 var gui = require("nw.gui");
 var fs = require("fs");
@@ -112,7 +113,15 @@ function handleSaveButton() {
 }
 
 function handleNewPicButton() {
-    editor.replaceSelection('ff');
+   //editor.replaceSelection('ff');
+    var x = window.screenX - 100;
+    var y = 50;//window.screenY + 10;
+
+    window.open('pic_crop/pic_crop.html', '_blank', 'screenX=' + x + ',screenY=' + y+',height=770px,width=1100px');
+} 
+
+function NewPicInput(input) {
+   editor.replaceSelection(input);
 } 
 
 function initContextMenu() {

@@ -1,0 +1,86 @@
+.aui-column {
+	float: none;
+	width: 100%;
+}
+
+#status table {
+	padding-left: 3em;
+}
+
+#status tr > td:first-child {
+	font-weight: bold;
+	text-align: right;
+}
+
+.aui-image-cropper-overlay {
+	z-index: 1;
+}
+
+.aui-image-cropper .aui-image-cropper-crop {
+	z-index: 2;
+}
+
+.cropped-output {
+	text-align: center;
+}
+
+.status {
+	position: absolute;
+	background-color: #FFF;
+	border: 1px solid #999;
+	top: 0;
+	right: 0;
+	padding: 5px;
+}
+
+.x, .y, .width, .height {
+	position: absolute;
+	background: #fff;
+	padding: 3px;
+	border-radius: 4px;
+	white-space: nowrap;
+}
+
+.x {
+	bottom: 100%;
+	right: 100%;
+}
+
+.y {
+	right: 100%;
+	top: 100%;
+}
+
+.width {
+	bottom: 100%;
+	left: 100%;
+}
+
+.height {
+	top: 100%;
+	left: 100%;
+}
+
+.cropped-image {
+  display: inline-block;
+  margin: 20px 0;
+  position: relative;
+  right: 40px;
+}
+
+#cropped-view {
+  position: absolute;
+  top: -13px;
+  left: 47px;
+}
+
+.down_crop1 {
+  padding-top: 5px;
+  padding-left:5px;
+}
+
+.down_crop2 {
+  background-color: #ffffff;
+  padding-top: 2px;
+  padding-left:2px;
+}

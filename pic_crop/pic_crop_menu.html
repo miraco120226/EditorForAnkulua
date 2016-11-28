@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Menu</title>
+<script src="zepto.min.js"></script>
+
+</head>
+<body style="overflow-x: hidden;overflow-y: hidden;">
+
+
+<textarea id="pic_name_output" style="resize:none;height:120px;width: 300px;font-size: 25px;overflow-x:hidden;overflow-y:hidden;"></textarea><br><br>
+圖片變數名稱
+<input type="text" id="pic_name" style="height:25px;width: 200px;font-size: 25px;" oninput="output(this.value)"></input><br><br>
+<button id="open" style="width: 100px;height: 50px;font-size: 20px;">開啟圖片</button>
+<button id="send" style="width: 100px;height: 50px;font-size: 20px;" onClick="send()">確定</button>
+
+<input style="display:none;" id="openFile" type="file" />
+</body>
+
+<script>
+var crop_main=parent.document.getElementById("iframe1").contentWindow;
+var txt1;
+var txt2;
+var txt;
+var pic_input_name;
+
+(function (){
+  var openButton = document.getElementById("open");
+  openButton.addEventListener("click", handleOpenButton);
+
+  $("#openFile").change(function(evt) {
+    crop_main.pic_orig_path=$(this).val();
+    crop_main.pic_path='file:///'+crop_main.pic_orig_path;
+    crop_main.pic_path2=crop_main.pic_path.replace(/\\/g, '/');
+    crop_main.pic_name=crop_main.pic_path2.split(/(\\|\/)/g).pop();
+    crop_main.document.getElementById("image").src=crop_main.pic_path;
+    crop_main.startcrop();
+    document.getElementById("open").style.display='none';
+  });
+
+})();
+
+function handleOpenButton() {
+  $("#openFile").trigger("click");
+}
+
+function send(){
+  if(document.getElementById("pic_name").value==''){
+    window.alert("請輸入名稱");
+  }
+  else if(!crop_main.pic_orig_path){
+     window.alert("請選擇圖片");
+  }
+  else{
+    crop_main.send();
+    crop_main.resize();
+  }
+}
+
+function output(name){
+  if(!name){
+    pic_input_name="";
+  }
+  else{
+    pic_input_name=name;
+  }
+  var x=crop_main.crop_x;
+  var y=crop_main.crop_y;
+  var w=crop_main.crop_width;
+  var h=crop_main.crop_height;
+  
+  txt1=pic_input_name+'="'+pic_input_name+'.png"';
+  txt2=pic_input_name+"reg=Region("+x+","+y+","+w+","+h+")";
+  txt=txt1+'\n'+txt2+'\n';
+  document.getElementById("pic_name_output").value=txt;
+}
+
+</script>
+</html>
